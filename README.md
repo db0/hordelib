@@ -1,6 +1,8 @@
 # hordelib
 
-`hordelib` is a thin wrapper around [ComfyUI](https://github.com/comfyanonymous/ComfyUI) primarily to enable the [AI Horde](https://aihorde.net/) to run inference pipelines designed in ComfyUI. `hordelib` and ComfyUI is are licensed under the terms of the GNU General Public License.
+`hordelib` is a thin wrapper around [ComfyUI](https://github.com/comfyanonymous/ComfyUI) primarily to enable the [AI Horde](https://aihorde.net/) to run inference pipelines designed in ComfyUI. `hordelib` and ComfyUI are licensed under the terms of the GNU General Public License.
+
+The developers of this project can be found in the AI Horde Discord server: https://discord.gg/3DxrhksKznb
 
 ## Purpose
 
@@ -13,7 +15,7 @@ If being installed from pypi, use a requirements file of the form:
 --extra-index-url https://download.pytorch.org/whl/cu117
 hordelib
 
-...your other dependancies...
+...your other dependencies...
 ```
 
 ## Usage
@@ -57,7 +59,23 @@ pil_image.save("test.png")
 Requirements:
 - `git` (install git)
 - `tox` (`pip install tox`)
-- Copy _any_ checkpoint model into the project root named `model.ckpt`
+- Set the environmental variable `AIWORKER_CACHE_HOME` to point to a model directory.
+
+Note the model directory must currently be in the original AI Horde directory structure:
+```
+<AIWORKER_CACHE_HOME>\
+   nataili\
+        clip\
+        codeformer\
+        compvis\
+            Deliberate.ckpt
+            ...etc...
+        controlnet\
+        embeds\
+        esrgan\
+        gfpgan\
+        safety_checker\
+```
 
 ### Running the Tests
 
